@@ -91,7 +91,8 @@ print()
 my_dict = {'key1':'value1','key2':'value2'}
 print(my_dict)
 print(my_dict['key2'])
-prices_lookup = {'apple':2.99, 'oranges':1.99, 'milk':5.80}
+prices_lookup = {'apple':2.99, ''
+                               'oranges':1.99, 'milk':5.80}
 print(prices_lookup['apple'])
 print()
 d = {'k1':123,'k2':[0,1,2],'k3':{'insideKey':100}}
@@ -99,3 +100,64 @@ print(d['k2'])
 print(d['k3'])
 print(d['k3']['insideKey']) #viziv iz vstroennoy dict  key # dict
 print(d['k2'][2]) # grab 2 from list, What I need to do is say d k 2 which returns back the list and then I want the item index too.
+print()
+# dict has a key1 and associate if this key is a list of lower case letters ABC
+dict = {'key1': ['a','b','c']}
+print(dict)
+mylist =dict['key1']
+print(mylist)
+letter = mylist[2]
+print(letter)
+print(letter.upper()) # teper eto vse sdelaem v odnoy strocke:
+# to je samoe polucili:
+print(dict['key1'][2].upper())
+print()
+# add new key to dict
+dic={'k1': 100, 'k2': 200}
+print(dic)
+dic['k3'] = 300
+print(dic)
+dic['k1'] = 'NEW VALUE'
+print(dic)
+# posmotret vse keys i values i items
+print(dic.keys())
+print(dic.values())
+print(dic.items())
+print()
+t=(1,2,3)
+mylist = [1,2,3]
+print(type(t),type(mylist))
+print(len(t),len(mylist))
+print()
+t = ('one', 2)
+print(t[0],t[-1])
+# counting how many times appears an item
+t =('a', 'a', 'b')
+print(t.count('a'))
+# s kakoy pozisii nacinaetsa
+print(t.index('a'))
+print()
+myset = set()
+print(myset)
+myset.add(1)
+print(myset)
+myset.add(2)
+print(myset)
+# vibiraem s setom tolko unique znaceniya iz list-a:
+mylist = [1,1,1,1,1,1,2,2,2,2,2,3,3,3,3]
+print(mylist)
+print(set(mylist))
+
+print(set('Mississipi'))
+
+print(type(False))
+print(1>2)
+print(type(True))
+print(1==1)
+print(1<=1)
+print(1>1)
+# data type None:
+b = None
+print(b)
+myfile = open('myfile.txt')
+print(myfile.read())
