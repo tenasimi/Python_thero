@@ -164,3 +164,26 @@ myfile.seek(0)    # cursor reset
 print(myfile.read())
 myfile.seek(0)
 print(myfile.readlines())
+myfile.close()
+with open('myfile.txt') as my_new_file:   # created var ssilayuwiysa na myfile.txt
+    contents = my_new_file.read()         # assigned that var to contents, imenovali
+print(contents)             #napecatali, tut bez close mojem oboditsa
+print()
+with open('myfile.txt',mode='r') as my_new_file:
+    contents = my_new_file.read()
+print(contents)
+print()
+# read mode
+with open('my_new_file.txt',mode='r') as f:
+    print(f.read())
+# append mode, dobavka k suwestvuyuwemu
+with open('my_new_file.txt',mode='a') as f:
+    f.write('\nFOUR ON FOURTH')
+with open('my_new_file.txt',mode='r') as f:
+    print(f.read())
+# write mode, if a file not exists, creates new file. Overrides existing file!!
+with open('selfcreated.txt', mode='w') as f:
+    f.write('I  CREATED THIS FILE')
+# citaem eqo teper
+with open('selfcreated.txt',mode='r') as f:
+    print(f.read())
