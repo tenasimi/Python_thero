@@ -187,3 +187,7 @@ with open('selfcreated.txt', mode='w') as f:
 # citaem eqo teper
 with open('selfcreated.txt',mode='r') as f:
     print(f.read())
+print()
+x= open('test.txt', 'w')
+x.write('Hello World')
+x.close()
