@@ -159,5 +159,8 @@ print(1>1)
 # data type None:
 b = None
 print(b)
-myfile = open('myfile.txt')
+myfile = open('myfile.txt')  # funksiya open
+myfile.seek(0)    # cursor reset
 print(myfile.read())
+myfile.seek(0)
+print(myfile.readlines())
