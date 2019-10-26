@@ -130,3 +130,61 @@ for num in mylist:
     print(list_sum)             # placing print inside of for loop
 print()
 #
+# iterating letters i string:
+mystring = 'Hello World'
+for letter in mystring:
+    print(letter)
+print()
+# ex. Print cool for as many times as your characters in string
+for ggg in 'Hello World':
+    print('Cool!')
+
+# You can also use the same iteration for each tuple.
+# pecataem cto xotim v cislo raz soderjimoqo tu;ipa
+tup = (1,2,3)
+for item in tup:
+    print('cislo raz')
+#
+print()
+# pecataem soderjanie tulip-a
+tup = (1,2,3)
+for item in tup:
+    print('item')
+
+print()
+#
+mylist = [(1,2),(3,4),(5,6),(7,8)]
+print(len(mylist))
+for item in mylist:
+    print(item)
+
+#unpack tuple ex.
+print()
+
+mylist = [(1,2),(3,4),(5,6),(7,8)]
+for (a,b) in mylist:
+    print(a)
+    print(b)
+
+#unpack tuple ex.
+print()
+
+mylist = [(1,2),(3,4),(5,6),(7,8)]
+for a,b in mylist:
+    print(b)
+
+#unpack tuple ex .
+print()
+
+mylist = [(1,2,3),(5,6,7),(8,9,10)]
+for item in mylist:
+    print(item)
+
+
+print()
+# But I can do tuple unpacking here, only print 2 6 9 ex.:
+mylist = [(1,2,3),(5,6,7),(8,9,10)]
+for a,b,c in mylist:
+    print(b)
+
+
