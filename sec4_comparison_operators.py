@@ -187,4 +187,123 @@ mylist = [(1,2,3),(5,6,7),(8,9,10)]
 for a,b,c in mylist:
     print(b)
 
+print()
+# Dictionary iteration
+#by default when you iterate through a dictionary you only iterate through the Keys.
+d = {'k1':1, 'k2':2, 'k3':3}
+for item in d:
+    print(item)
 
+print()
+# if you want iterate through items themselves call .items(:
+d = {'k1':1, 'k2':2, 'k3':3}
+for item in d.items():
+    print(item)
+
+print()
+# primenyaya priem visheprivedenniy v tuple, mojno delat UNPACKING
+d = {'k1':1, 'k2':2, 'k3':3}
+for key,value in d.items():
+    print(value)
+
+print()
+# only value ex.
+d = {'k1':1, 'k2':2, 'k3':3}
+for value in d.values():
+    print(value)
+
+print()
+# WHILE loop ex.
+x = 0
+while x < 5:
+    print(f'The current value of x is {x}')
+    x = x + 1  #or x +=1  is more compact
+
+print()
+# WHILE + else
+x = 0
+while x < 5:
+    print(f'The current value of x is {x}')
+    x += 1
+else:
+    print('X is NOT less than 5')
+
+print()
+# pass keyword ex.
+x = [1,2,3]
+for item in x:
+    #  many times programmers keep it as a placeholder to kind of avoid a syntax error b
+    pass
+print('end of my script')
+
+#
+print()
+
+mystring = 'Sammy'
+for letter in mystring:
+    print(letter)
+
+# I'm not actually printing out the letter.
+print()
+mystring = 'Sammy'
+for letter in mystring:
+    if letter == 'a':
+        continue
+    print(letter)
+
+# break ex. - stopping loop.
+print()
+mystring = 'Samrikitmo'
+for letter in mystring:
+    if letter == 'k':
+        break
+    print(letter)
+
+# break ex. - stopping loop at 2.
+print()
+
+x = 0
+while x < 5:
+    if x == 2:  # dobavlyaem
+        break   # break uslovie
+    print(x)
+    x += 1
+#
+print()
+#mylist = [a,b,c]
+for bam in range(3):  #all range from 0 to 3
+    print(bam)
+
+print()
+#mylist = [a,b,c]
+for num in range(2,5):  #start from 2 not include 5
+    print(num)
+
+print()
+#mylist = [a,b,c]
+for num in range(3,10,2):  #start from 3 not include 5 + step size 2
+    print(num)
+
+k = list(range(3,28,2))
+print(k)
+
+print()
+# enumerate with format + for
+index_count = 0
+for letter in 'abcde':
+    print('At index {} the letter is {}'.format(index_count,letter))
+    index_count += 1
+
+print()
+# to je samoe no s funksiey enumerate
+word = 'abcde'
+for item in enumerate(word):  # v enumerate stavim iterable var - word
+    print(item)
+
+print()
+# delaem enumerate + tuple unpacking
+word = 'abcde'
+for ind,let in enumerate(word):  # znaya cto vivedet tuple, delaem unpack naxodu
+    print(ind)
+    print(let)
+    print('\n')
