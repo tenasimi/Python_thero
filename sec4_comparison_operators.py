@@ -307,3 +307,79 @@ for ind,let in enumerate(word):  # znaya cto vivedet tuple, delaem unpack naxodu
     print(ind)
     print(let)
     print('\n')
+
+# zip - funksiya sozdayuwaya tuple iz listov
+mylist1 = [1,2,3]
+mylist2 = ['a','b','c']
+for item in zip(mylist1,mylist2):
+    print(item)
+
+print()
+# zip - funksiya sozdayuwaya tuple iz listov
+mylist1 = [1,2,3]
+mylist2 = ['a','b','c']
+mylist3 = [100,200,300]
+for item in zip(mylist1,mylist2,mylist3):
+    print(item)
+
+print()
+# zip - Zipp is only going to be able to go and zip together as far as the list which is the  shortest.
+mylist1 = [1,2,3,4,5,6]
+mylist2 = ['a','b','c']
+mylist3 = [100,200,300]
+for item in zip(mylist1,mylist2,mylist3):
+    print(item)
+
+print()
+#list + zip - zipping together 2 lists
+l = list(zip(mylist1,mylist2))
+print(l)
+
+# in
+# in keyword  PROVERKA USLOVIYA, est li x v spiske?
+# is X in the list 1 to 3 and 0 return back a boolean true or false.
+print('x' in ['x','y','z'])
+print()
+print('a' in 'a world')   # string ex
+print()
+print('mykey' in {'mykey':345})  # dict ex.
+print()
+d={'mykey':345}
+print(345 in d.keys())
+print(345 in d.values())
+print()
+# min  max functions
+mylist = [10,20,30,40,100]
+print(min(mylist))
+print(max(mylist))
+
+# random library use
+from random import shuffle
+
+mylist = [1,2,3,4,5,6,7,8,9,10]
+shuffle(mylist)  # peremewivaet (shuffle)
+print(mylist)
+
+print()
+
+# ramdom integer function , grabs random int from interval
+from random import randint
+print(randint(0,100))
+
+# also i can save its random output and use later
+mynum = randint(0,10)
+print(mynum)
+#
+# input
+print(input('Enter a number here: '))
+
+result = input('What is your name?  ')
+print(result)
+
+print(type(result))
+
+result = input('What is your favorite number?  ')
+
+print(float(result))
+
+print(int(result))
