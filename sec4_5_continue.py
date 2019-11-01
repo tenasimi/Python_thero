@@ -123,3 +123,5 @@ print()
 #ex create a list of the first letters of every word in this string
 st = 'Create a list of the first letters of every word in this string'
 print([word[0] for word in st.split()])
+
+print(help(mylist.index))
