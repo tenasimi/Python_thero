@@ -1,4 +1,4 @@
-mystring = 'hello'
+mystring = 'hello nasimi'
 mylist= []
 for letter in mystring:
     mylist.append(letter)
@@ -60,7 +60,7 @@ for x in [2,4,6]:
     for y in [1,10,1000]:
         mylist.append(x*y)  #kajdiy elem list1 na kajdiy list2
 print(mylist)
-
+print(help(mylist.append))
 print()
 #nested loop ex. to je samoe no pokoroce :
 
@@ -125,3 +125,14 @@ st = 'Create a list of the first letters of every word in this string'
 print([word[0] for word in st.split()])
 
 print(help(mylist.index))
+
+
+def myfunc(**kwargs):
+    print(kwargs)
+    if 'fruit' in kwargs:
+        print('My fruit of choice is {}'.format(kwargs['veggie']))
+    else:
+        print('I did not find any fruit here')
+
+
+myfunc(fruit='apple', veggie='lettuce')
