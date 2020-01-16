@@ -1,68 +1,39 @@
-#Step 1: Write a function that can print out a board. Set up your board as a list,
-# where each index 1-9 corresponds with a number on a number pad, so you get a 3 by 3 board representation.
+# 1
+from IPython.display import clear_output
+
 
 def display_board(board):
-    print('\n' * 100)
+    clear_output()  # Remember, this only works in jupyter!
+
     print('   |   |')
-    print(' ' + board[7]+' | '+board[8]+' | '+board[9])
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + board[4]+' | '+board[5]+' | '+board[6])
+    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('   |   |')
     print('-----------')
     print('   |   |')
-    print(' ' + board[1]+' | '+board[2]+' | '+board[3])
+    print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |')
 
-test_board = ['#','X','O','X','O','X','O','X','O','X']
-display_board(test_board)
-#display_board(test_board)
-#Step 2: Write a function that can take in a player input and assign their marker as 'X' or 'O'.
-# Think about using while loops to continually ask until you get a correct answer.
+# 2
 def player_input():
-
-    '''
-    Step 2: Write a function that can take in a player input and assign their marker as 'X' or 'O'.
-    Think about using while loops to continually ask until you get a correct answer.
-    OUTPUT = (Player 1 marker, Player 2 marker)
-    '''
-    #print(player_input.__doc__)
     marker = ''
-    # keep asking player 1 to choose x or 0
 
-    while marker != 'X' and marker != '0':
-        marker = input('Player 1, choose X or 0: ').upper()  #balaca x olsa qebul etsin
+    while not (marker == 'X' or marker == '0'):
+        marker = input('Player 1: Do you want to be X or 0? ').upper()
 
-    # assign player 2 , the opposite marker
-    player1 = marker
-
-    if player1 == 'X':
-        player2 = '0'
+    if marker == 'X':
+        return ('X', '0')
     else:
-        player2 = 'X'
+        return ('0', 'X')
 
-    return (player1, player2)
-
-#player_input()
-print(player_input())
-
-player1_marker, player2_marker = player_input()
-
-print(player1_marker)
-print(player2_marker)
-
-#Step 3: Write a function that takes in the board list object,
-# a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board.
-
+# 3
 def place_marker(board, marker, position):
     board[position] = marker
 
-place_marker(test_board,'$',9)
-display_board(test_board)
-#help(player_input())
-
-# Step 4: Write a function that takes in a board and checks to see if someone has won. (all marks are same -x or y)
+# 4
 def win_check(board, mark):
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or  # across the top
             (board[4] == mark and board[5] == mark and board[6] == mark) or  # across the middle
@@ -72,35 +43,93 @@ def win_check(board, mark):
             (board[9] == mark and board[6] == mark and board[3] == mark) or  # down the right side
             (board[7] == mark and board[5] == mark and board[3] == mark) or  # diagonal
             (board[9] == mark and board[5] == mark and board[1] == mark))  # diagonal
-
-
-display_board(test_board)
-print(win_check(test_board,'X'))
-
-# Step 5 .write a func that use the random module to randomly decide which player goes first
-
+# 5
 import random
-
 def choose_first():
-
-    flip = random.randint(0,1)
-
-    if flip == 0:
-        return 'Player 1'
+    if random.randint(0, 1) == 0:
+        return 'Player 2'
     else:
-        return  'Player 2'
+        return 'Player 1'
 
-print(choose_first())
-
-#Step 6: proveryaem nalicie pustogo mesta v boarde
+# 6
 def space_check(board, position):
     return board[position] == ' '
 
-#print(space_check(board=test_board,position=9))
-
-#Step 7: func that checks if the board is full
+# 7
 def full_board_check(board):
-
-    for i in range(1,10):
-        if space_check(board,i):
+    for i in range(1, 10):
+        if space_check(board, i):
             return False
+    return True
+
+# 8
+def player_choice(board):
+    position = 0
+
+    while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] or not space_check(board, position):
+        position = int(input('Choose your next position: (1-9) '))
+
+    return position
+
+# 9
+def replay():
+    return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
+
+####10 Logic flow of all above stuff!!
+print('Welcome to Tic Tac Toe!')
+
+while True:
+    # Reset the board
+    theBoard = [' '] * 10
+    player1_marker, player2_marker = player_input()
+    turn = choose_first()
+    print(turn + ' will go first.')
+
+    play_game = input('Are you ready to play? Enter Yes or No.')
+
+    if play_game.lower()[0] == 'y':
+        game_on = True
+    else:
+        game_on = False
+
+    while game_on:
+        if turn == 'Player 1':
+            # Player1's turn.
+
+            display_board(theBoard)
+            position = player_choice(theBoard)
+            place_marker(theBoard, player1_marker, position)
+
+            if win_check(theBoard, player1_marker):
+                display_board(theBoard)
+                print('Congratulations! You have won the game!')
+                game_on = False
+            else:
+                if full_board_check(theBoard):
+                    display_board(theBoard)
+                    print('The game is a draw!')
+                    break
+                else:
+                    turn = 'Player 2'
+
+        else:
+            # Player2's turn.
+
+            display_board(theBoard)
+            position = player_choice(theBoard)
+            place_marker(theBoard, player2_marker, position)
+
+            if win_check(theBoard, player2_marker):
+                display_board(theBoard)
+                print('Player 2 has won!')
+                game_on = False
+            else:
+                if full_board_check(theBoard):
+                    display_board(theBoard)
+                    print('The game is a draw!')
+                    break
+                else:
+                    turn = 'Player 1'
+
+    if not replay():
+        break
