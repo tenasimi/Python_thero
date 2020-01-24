@@ -17,9 +17,12 @@ def display_board(board):
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |')
 
+#board = ['#','X','O','X','O','X','O','X','O','X']
+#board = [' ']*10   empty board ex
+#display_board(board)
 # 2
 def player_input():
-    marker = ''
+    marker = ' '
 
     while not (marker == 'X' or marker == '0'):
         marker = input('Player 1: Do you want to be X or 0? ').upper()
