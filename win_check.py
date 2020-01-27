@@ -17,7 +17,7 @@ def choose_first():
     else:
         return 'Player 1'
 #3
-def display_board(board):  #board is a list with indexes
+def display_board(board):  # board is a list with indexes
     clear_output()
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('-----------')
