@@ -4,11 +4,11 @@ class Account:
         self.owner=owner
         self.balance=balance
 
-    def deposit(self,amount):
-        self.amount=amount
+    def deposit(self,value):
+        self.value=self.balance+value
 
     def withdraw(self,debt):
-        self.debt=self.amount
+        self.debt=self.value-debt
 
 #  Instantiate the class = create obj
 acct1 = Account('Nasimi',5000)
@@ -24,3 +24,5 @@ acct1.deposit(50)
 acct1.withdraw(75)
 # Make a withdrawal that exceeds the available balance
 acct1.withdraw(500)
+print(acct1.withdraw(100))
+
